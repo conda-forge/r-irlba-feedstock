@@ -1,4 +1,4 @@
-{% set version = '2.1.2' %}
+{% set version = "2.3.2" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -12,7 +12,7 @@ source:
   url:
     - https://cran.r-project.org/src/contrib/irlba_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/irlba/irlba_{{ version }}.tar.gz
-  sha256: 5183e8dd7943df11c0f44460566adf06c03d5320f142699298f516d423b06ce1
+  sha256: 3fdf2d8fefa6ab14cd0992740de7958f9f501c71aca93229f5eb03c54558fc38
 
 build:
   number: 0
