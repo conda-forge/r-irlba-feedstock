@@ -1,5 +1,4 @@
 {% set version = "2.3.3" %}
-
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,32 +7,35 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: irlba_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/irlba_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/irlba/irlba_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/irlba_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/irlba/irlba_{{ version }}.tar.gz
   sha256: 6ee233697bcd579813bd0af5e1f4e6dd1eea971e8919c748408130d970fef5c0
 
 build:
   merge_build_host: True  # [win]
-  number: 1
-  skip: true  # [win32]
-
+  number: 2
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
-    - posix                # [win]
-    - {{ compiler('c') }}        # [unix]
-    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ compiler('c') }}              # [not win]
+    - {{ compiler('m2w64_c') }}        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}make
+    - {{posix}}sed               # [win]
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
   host:
     - r-base
     - r-matrix
-
+    - libblas
+    - liblapack
   run:
     - r-base
+    - {{native}}gcc-libs         # [win]
     - r-matrix
 
 test:
@@ -47,9 +49,9 @@ about:
   summary: Fast and memory efficient methods for truncated singular and eigenvalue decompositions
     and principal component analysis of large sparse or dense matrices.
   license_family: GPL3
+  license_file:
+    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 
 extra:
   recipe-maintainers:
     - conda-forge/r
-    - johanneskoester
-    - bgruening
