@@ -1,4 +1,4 @@
-{% set version = "2.3.3" %}
+{% set version = "2.3.4" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,11 +10,11 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/irlba_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/irlba/irlba_{{ version }}.tar.gz
-  sha256: 6ee233697bcd579813bd0af5e1f4e6dd1eea971e8919c748408130d970fef5c0
+  sha256: 6e98d8ba500925eb862ebe2dabd0a6325517dba05025a850b1b7aa539ceb38d9
 
 build:
-  merge_build_host: True  # [win]
-  number: 3
+  merge_build_host: true  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -46,8 +46,7 @@ test:
 about:
   home: https://CRAN.R-project.org/package=irlba
   license: GPL-3.0-only
-  summary: Fast and memory efficient methods for truncated singular and eigenvalue decompositions
-    and principal component analysis of large sparse or dense matrices.
+  summary: Fast and memory efficient methods for truncated singular and eigenvalue decompositions and principal component analysis of large sparse or dense matrices.
   license_family: GPL3
   license_file:
     - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
