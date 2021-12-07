@@ -1,4 +1,4 @@
-{% set version = "2.3.4" %}
+{% set version = "2.3.5" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/irlba_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/irlba/irlba_{{ version }}.tar.gz
-  sha256: 6e98d8ba500925eb862ebe2dabd0a6325517dba05025a850b1b7aa539ceb38d9
+  sha256: 26fc8c0d36460e422ab77f43a597b8ec292eacd452628c54d34b8bf7d5269bb9
 
 build:
   merge_build_host: true  # [win]
