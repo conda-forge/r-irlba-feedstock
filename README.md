@@ -13,6 +13,8 @@ Package license: GPL-3.0-only
 
 Summary: Fast and memory efficient methods for truncated singular and eigenvalue decompositions and principal component analysis of large sparse or dense matrices.
 
+Development: https://github.com/bwlewis/irlba
+
 About r-irlba
 -------------
 
@@ -21,6 +23,8 @@ Home: https://CRAN.R-project.org/package=irlba
 Package license: GPL-3.0-only
 
 Summary: Fast and memory efficient methods for truncated singular and eigenvalue decompositions and principal component analysis of large sparse or dense matrices.
+
+Development: https://github.com/bwlewis/irlba
 
 Current build status
 ====================
