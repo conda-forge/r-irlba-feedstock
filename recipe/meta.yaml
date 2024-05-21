@@ -14,7 +14,7 @@ source:
 
 build:
   merge_build_host: true  # [win]
-  number: 1
+  number: 2
   rpaths:
     - lib/R/lib/
     - lib/
@@ -23,22 +23,22 @@ requirements:
   build:
     - cross-r-base {{ r_base }}  # [build_platform != target_platform]
     - r-matrix                   # [build_platform != target_platform]
-    - {{ compiler('c') }}              # [not win]
-    - {{ compiler('m2w64_c') }}        # [win]
-    - {{ posix }}filesystem        # [win]
+    - {{ compiler('c') }}        # [not win]
+    - {{ compiler('m2w64_c') }}  # [win]
+    - {{ posix }}filesystem      # [win]
     - {{ posix }}make
-    - {{ posix }}sed               # [win]
-    - {{ posix }}coreutils         # [win]
-    - {{ posix }}zip               # [win]
+    - {{ posix }}sed             # [win]
+    - {{ posix }}coreutils       # [win]
+    - {{ posix }}zip             # [win]
   host:
     - r-base
-    - r-matrix
+    - r-matrix >=1.6_2
     - libblas
     - liblapack
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
-    - r-matrix
+    - {{ native }}gcc-libs       # [win]
+    - r-matrix >=1.6_2
 
 test:
   commands:
@@ -47,6 +47,7 @@ test:
 
 about:
   home: https://CRAN.R-project.org/package=irlba
+  dev_url: https://github.com/bwlewis/irlba
   license: GPL-3.0-only
   summary: Fast and memory efficient methods for truncated singular and eigenvalue decompositions and principal component analysis of large sparse or dense matrices.
   license_family: GPL3
