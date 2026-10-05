@@ -1,4 +1,4 @@
-{% set version = "2.3.7" %}
+{% set version = "2.4.1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/irlba_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/irlba/irlba_{{ version }}.tar.gz
-  sha256: 33acd384832443df378c2e906440a90a1928f79a57ef324852f0fe846ff66899
+  sha256: 00650af430b1549d54ee39c19a9cce125421c72b851ba2c4fbf6ddacccc3cad1
 
 build:
   number: 0
